@@ -3,29 +3,34 @@
 <html>
 	<head>
 		<title>{{ page.title }}</title>
-		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<link rel="stylesheet" type="text/css" href="/css/main.css">
 	</head>
 
 	<body>
-		<nav>
-    		<ul>
-        		<li><a href="/">Home</a></li>
-	        	<li><a href="/about">About</a></li>
-        		<li><a href="/cv">CV</a></li>
-        		<li><a href="/blog">Blog</a></li>
-    		</ul>
-		</nav>
+		<div id="navbarContainer">
+			<nav id="navbar">
+	    		<ul>
+	        		<li><a href="/">Home</a></li>
+		        	<li><a href="/about">About</a></li>
+	        		<li><a href="/cv">CV</a></li>
+	        		<li><a href="/blog">Blog</a></li>
+	    		</ul>
+			</nav>
+		</div>
 
-		{% for post in site.posts %}
-			<li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
-		{% endfor %}
+		<div id="page_container">
+			<div id ="post_content" class="container">{{ content }}</div>
 
-		<div class="container">{{ content }}</div>
+			<div id="previous_posts">
+				{% for post in site.posts %}
+					<li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li><br>
+				{% endfor %}
+			</div>
+		</div>
 
 		<footer>
     		<ul>
-        		<li><a href="mailto:hankquinlanhub@gmail.com">email</a></li>
-        		<li><a href="https://github.com/hankquinlan">github.com/hankquinlan</a></li>
+        		<li><a href="https://github.com/hankquinlan">github.com/vampcat</a></li>
 			</ul>
 		</footer>
 	</body>

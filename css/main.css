@@ -1,6 +1,6 @@
 body {
-    margin: 60px auto;
-    width: 70%;
+    background-image: url("/images/background.jpg");
+    color: #c0c0c0;
 }
 
 nav ul, footer ul {
@@ -13,6 +13,10 @@ nav ul, footer ul {
 nav ul li, footer ul li {
     display: inline;
     margin-right: 20px;
+}
+
+footer ul {
+	text-align: right;
 }
 
 a {
@@ -32,7 +36,6 @@ h1 {
 p {
     font-size: 1.5em;
     line-height: 1.4em;
-    color: #333;
 }
 
 footer {
@@ -47,4 +50,28 @@ ul.posts {
 
 ul.posts li {
     list-style: none;
+}
+
+#navbarContainer {
+    background-image: url("/images/background.jpg");
+    padding: 15px;
+}
+
+#navbar {
+    margin: 0 auto;
+    width: 70%;
+}
+
+#page_container {
+	display: flex;
+    margin: 30px auto;
+    width: 70%;
+}
+
+#post_content {
+	flex: 4;
+}
+
+#previous_posts {
+	flex: 1;
 }
