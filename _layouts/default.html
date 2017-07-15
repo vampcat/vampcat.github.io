@@ -7,31 +7,30 @@
 	</head>
 
 	<body>
-		<div id="navbarContainer">
-			<nav id="navbar">
-	    		<ul>
-	        		<li><a href="/">Home</a></li>
-		        	<li><a href="/about">About</a></li>
-	        		<li><a href="/cv">CV</a></li>
-	        		<li><a href="/blog">Blog</a></li>
-	    		</ul>
-			</nav>
-		</div>
+		<div id="pageContainer" class="silverText">
+			<div id ="postContainer" class="container">
+				<div class="baronFont centerAlignText" style="font-size: 2.5em; margin-top: 0.25em;">
+					DESTINATION SOL
+				</div>
+				<div class="baronFont centerAlignText" style="font-size: 1.25em; margin-top: 0.5em;">
+					rESSUrECTED
+				</div>
+				<div class="justifyText" style="margin-top: 1.5em;">
+					{{ content }}
+				</div>
+			</div>
 
-		<div id="page_container">
-			<div id ="post_content" class="container">{{ content }}</div>
-
-			<div id="previous_posts">
+			<div id="previousPosts">
+				<div id="aboutSection">
+					<li><img src="/images/authorImage.jpg" class="circleImage" style="width: 50%;"></li>
+					<li>Aresh "<span class="goldenText">vampcat</span>" Mishra</li>
+					<li>{ Code, Game, Sleep }</li>
+				</div>
+				<li style="display: block;"><img src="images/rocket.png" style="width: 50%;"></li>
 				{% for post in site.posts %}
-					<li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li><br>
+					<li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
 				{% endfor %}
 			</div>
 		</div>
-
-		<footer>
-    		<ul>
-        		<li><a href="https://github.com/hankquinlan">github.com/vampcat</a></li>
-			</ul>
-		</footer>
 	</body>
 </html>

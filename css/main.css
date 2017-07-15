@@ -1,77 +1,83 @@
+@font-face {
+    font-family: baron-neue;
+    src: url("/fonts/baron-neue.otf");
+}
+
 body {
-    background-image: url("/images/background.jpg");
-    color: #c0c0c0;
+	padding: 0;
+	border-top: 4px solid #edc27b;
+	border-radius: 10px;
+    background: url("/images/background.jpg") no-repeat center center fixed;
+    background-size: cover;
 }
 
-nav ul, footer ul {
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
-    padding: 0px;
-    list-style: none;
-    font-weight: bold;
+.goldenText {
+	color: #edc27b;
 }
 
-nav ul li, footer ul li {
+.silverText {
+    color: #dddddd;
+}
+
+.navigationList li {
     display: inline;
     margin-right: 20px;
 }
 
-footer ul {
-	text-align: right;
+.circleImage {
+	border-radius: 50%;
+}
+
+.baronFont {
+    font-family: "baron-neue";
+}
+
+.centerAlignText {
+	text-align: center;
+}
+
+.justifyText {
+	text-align: justify;
+}
+
+#pageContainer {
+	display: flex;
+    width: 95%;
+    margin: 0.5em auto;
+}
+
+#postContainer {
+	flex: 4;
+	padding-right: 1em;
+}
+
+#previousPosts {
+	flex: 1;
+	text-align: center;
+	padding-left: 1em;
+}
+
+#previousPosts li {
+	display: block;
+	margin-top: 0.5em;
+}
+
+#aboutSection {
+    border-bottom: 1px solid #edc27b;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+}
+
+#aboutSection li {
+	overflow: hidden;
+	white-space: nowrap;
 }
 
 a {
     text-decoration: none;
-    color: #999;
+    color: #ffffff;
 }
 
 a:hover {
-    text-decoration: underline;
-}
-
-h1 {
-    font-size: 3em;
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
-}
-
-p {
-    font-size: 1.5em;
-    line-height: 1.4em;
-}
-
-footer {
-    border-top: 1px solid #d5d5d5;
-    font-size: .8em;
-}
-
-ul.posts {
-    margin: 20px auto 40px;
-    font-size: 1.5em;
-}
-
-ul.posts li {
-    list-style: none;
-}
-
-#navbarContainer {
-    background-image: url("/images/background.jpg");
-    padding: 15px;
-}
-
-#navbar {
-    margin: 0 auto;
-    width: 70%;
-}
-
-#page_container {
-	display: flex;
-    margin: 30px auto;
-    width: 70%;
-}
-
-#post_content {
-	flex: 4;
-}
-
-#previous_posts {
-	flex: 1;
+    color: #edc27b;
 }
