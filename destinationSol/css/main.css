@@ -1,13 +1,15 @@
+---
+---
 @font-face {
     font-family: baron-neue;
-    src: url("/fonts/baron-neue.otf");
+    src: url("{{ site.url }}/destinationSol/fonts/baron-neue.otf");
 }
 
 body {
 	padding: 0;
 	border-top: 4px solid #edc27b;
 	border-radius: 10px;
-    background: url("/images/background.jpg") no-repeat center center fixed;
+    background: url("{{ site.url }}/destinationSol/images/background.jpg") no-repeat center center fixed;
     background-size: cover;
 }
 
