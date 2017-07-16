@@ -53,13 +53,13 @@ body {
 	padding-right: 1em;
 }
 
-#previousPosts {
+#sidebar {
 	flex: 1;
 	text-align: center;
 	padding-left: 1em;
 }
 
-#previousPosts li {
+#sidebar li {
 	display: block;
 	margin-top: 0.5em;
 }
@@ -73,6 +73,11 @@ body {
 #aboutSection li {
 	overflow: hidden;
 	white-space: nowrap;
+}
+
+#previousPosts img, #previousPosts a {
+	position: relative;
+	z-index: 99;
 }
 
 a {

@@ -4,6 +4,8 @@
 	<head>
 		<title>{{ page.title }}</title>
 		<link rel="stylesheet" type="text/css" href="{{ site.url }}/destinationSol/css/main.css">
+		<script src="{{ site.url }}/destinationSol/js/proton-2.1.0.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	</head>
 
 	<body>
@@ -20,18 +22,67 @@
 				</div>
 			</div>
 
-			<div id="previousPosts">
+			<div id="sidebar">
 				<div id="aboutSection">
 					<li><img src="{{ site.url }}/destinationSol/images/authorImage.jpg" class="circleImage" style="width: 50%;"></li>
 					<li>Aresh "<span class="goldenText">vampcat</span>" Mishra</li>
 					<li>{ Code, Game, Sleep }</li>
 				</div>
-				<li style="display: block;"><img src="{{ site.url }}/destinationSol/images/rocket.png" style="width: 50%;"></li>
-				<li>» <a href="{{ site.url }}/destinationSol/index.html">Home</a></li>
-				{% for post in site.posts %}
-					<li>» <a href="{{ post.url }}">{{ post.title }}</a></li>
-				{% endfor %}
+				<div id="previousPosts">
+					<li id = "previousPostsRocket" style="display: block;"><img src="{{ site.url }}/destinationSol/images/rocket.png" style="width: 50%;"></li>
+					<li>» <a href="{{ site.url }}/destinationSol/index.html">Home</a></li>
+					{% for post in site.posts %}
+						<li>» <a href="{{ post.url }}">{{ post.title }}</a></li>
+					{% endfor %}
+				</div>
 			</div>
 		</div>
+
+		<script>
+			var containerDiv;
+			var proton;
+			var renderer;
+
+			$('document').ready(function() {
+				containerDiv = document.getElementById("previousPostsRocket");
+
+				createProton();
+				tick();
+			});
+
+			function createProton() {
+				proton = new Proton;
+				createImageEmitter();
+
+				renderer = new Proton.Renderer('dom', proton, containerDiv);
+				renderer.start();
+			}
+
+			function createImageEmitter() {
+				var emitter = new Proton.Emitter();
+				emitter.rate = new Proton.Rate(new Proton.Span(2, 2), new Proton.Span(.1, .1));
+				emitter.addInitialize(new Proton.Life(1, 5));
+				emitter.addInitialize(new Proton.ImageTarget(['{{ site.url }}/destinationSol/images/smokeParticle.png'], 100, 100));
+				emitter.addInitialize(new Proton.V(new Proton.Span(2, 6), new Proton.Span(180, 30, true), 'polar'));
+				emitter.addBehaviour(new Proton.Alpha(0.2, 0.1));
+				emitter.addBehaviour(new Proton.Scale(.5, 0.4));
+				emitter.addBehaviour(new Proton.Gravity(5.5));
+				emitter.addBehaviour(new Proton.Rotate(new Proton.Span(0, 360), new Proton.Span(-15, 15), 'add'));
+				var rocketWidth = containerDiv.offsetWidth;
+				var rocketHeight = containerDiv.offsetHeight;
+				var particleSize = 256;
+				emitter.addBehaviour(new Proton.CrossZone(new Proton.RectZone(-rocketWidth, rocketHeight * 0.8, 2 * rocketWidth, rocketHeight), 'dead'));
+				emitter.p.x = -particleSize * 0.35;
+				emitter.p.y = rocketHeight * 0.8;
+				emitter.emit();
+				proton.addEmitter(emitter);
+			}
+
+			function tick() {
+				requestAnimationFrame(tick);
+				proton.update();
+			}
+
+		</script>
 	</body>
 </html>
