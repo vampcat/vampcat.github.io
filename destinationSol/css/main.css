@@ -11,6 +11,8 @@ body {
 	border-radius: 10px;
     background: url("{{ site.url }}/destinationSol/images/background.jpg") no-repeat center center fixed;
     background-size: cover;
+	overflow-x: hidden;
+	text-shadow: 2px 2px 4px black;
 }
 
 .goldenText {
@@ -18,7 +20,7 @@ body {
 }
 
 .silverText {
-    color: #dddddd;
+    color: #eeeeee;
 }
 
 .navigationList li {
@@ -44,7 +46,7 @@ body {
 
 #pageContainer {
 	display: flex;
-    width: 95%;
+    width: 85%;
     margin: 0.5em auto;
 }
 
