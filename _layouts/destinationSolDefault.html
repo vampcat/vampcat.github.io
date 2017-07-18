@@ -70,7 +70,7 @@
 				emitter.addBehaviour(new Proton.Rotate(new Proton.Span(0, 360), new Proton.Span(-15, 15), 'add'));
 				var rocketWidth = containerDiv.offsetWidth;
 				var rocketHeight = containerDiv.offsetHeight;
-				var particleSize = 256;
+				var particleSize = rocketWidth * 256/346;
 				emitter.addBehaviour(new Proton.CrossZone(new Proton.RectZone(-rocketWidth, rocketHeight * 0.8, 2 * rocketWidth, rocketHeight), 'dead'));
 				emitter.p.x = -particleSize * 0.35;
 				emitter.p.y = rocketHeight * 0.8;
